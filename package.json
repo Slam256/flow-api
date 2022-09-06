@@ -6,8 +6,10 @@
   "scripts": {
     "start": "env-cmd -f .env babel-node src/index.js",
     "dev": "env-cmd -f .env nodemon --watch src --exec babel-node src/index.js",
-    "lint": "",
-    "prepare": "husky install"
+    "lint": "prettier --write .",
+    "prepare": "husky install",
+    "test": "echo 'NodeJS:' && npx node -v && nyc --reporter=html --reporter=text --reporter=text-summary mocha",
+    "coverage": "nyc report --reporter=text-lcov | coveralls"
   },
   "repository": {
     "type": "git",
@@ -24,9 +26,11 @@
     "@babel/core": "^7.18.9",
     "@babel/node": "^7.18.9",
     "@babel/preset-env": "^7.18.9",
+    "chai": "^4.3.6",
     "cors": "^2.8.5",
     "env-cmd": "^10.1.0",
     "express": "^4.18.1",
+    "mocha": "^10.0.0",
     "mongoose": "^6.5.4",
     "nodemon": "^2.0.19"
   },

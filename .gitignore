@@ -5,7 +5,8 @@ node_modules
 .env
 
 # testing
-
+coverage
+.nyc_output
 
 # misc
 package-lock.json
